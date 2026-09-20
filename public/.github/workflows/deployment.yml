@@ -1,0 +1,21 @@
+name: Deployment demo
+
+on: [push, workflow_dispatch]
+
+jobs:
+    lint:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout Code
+              uses: actions/checkout@v7
+            - name : Install Node.js
+              uses: actions/setup-node@v3
+              with:
+                node-version: '20'
+            - name: Install Dependencies
+              run: npm install
+            - name: Run Linter
+              run: npm run lint
+                
+             
+       
